@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.timeLabel = new System.Windows.Forms.Label();
-            this.timeLeft = new System.Windows.Forms.Label();
+            this.labelForTimeLeft = new System.Windows.Forms.Label();
             this.plusLeftLabel = new System.Windows.Forms.Label();
             this.plusRightLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,6 +52,7 @@
             this.dividedRightLabel = new System.Windows.Forms.Label();
             this.dividedLeftLabel = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.sum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.difference)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.product)).BeginInit();
@@ -66,15 +68,15 @@
             this.timeLabel.Size = new System.Drawing.Size(200, 30);
             this.timeLabel.TabIndex = 0;
             // 
-            // timeLeft
+            // labelForTimeLeft
             // 
-            this.timeLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.timeLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeLeft.Location = new System.Drawing.Point(64, 9);
-            this.timeLeft.Name = "timeLeft";
-            this.timeLeft.Size = new System.Drawing.Size(200, 30);
-            this.timeLeft.TabIndex = 1;
-            this.timeLeft.Text = "Time Left";
+            this.labelForTimeLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelForTimeLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelForTimeLeft.Location = new System.Drawing.Point(64, 9);
+            this.labelForTimeLeft.Name = "labelForTimeLeft";
+            this.labelForTimeLeft.Size = new System.Drawing.Size(200, 30);
+            this.labelForTimeLeft.TabIndex = 1;
+            this.labelForTimeLeft.Text = "Time Left";
             // 
             // plusLeftLabel
             // 
@@ -151,7 +153,6 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "-";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // minusRightLabel
             // 
@@ -279,6 +280,12 @@
             this.startButton.TabIndex = 1;
             this.startButton.Text = "Start the Quiz!";
             this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -306,7 +313,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.plusRightLabel);
             this.Controls.Add(this.plusLeftLabel);
-            this.Controls.Add(this.timeLeft);
+            this.Controls.Add(this.labelForTimeLeft);
             this.Controls.Add(this.timeLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
@@ -324,7 +331,7 @@
         #endregion
 
         private System.Windows.Forms.Label timeLabel;
-        private System.Windows.Forms.Label timeLeft;
+        private System.Windows.Forms.Label labelForTimeLeft;
         private System.Windows.Forms.Label plusLeftLabel;
         private System.Windows.Forms.Label plusRightLabel;
         private System.Windows.Forms.Label label2;
@@ -346,6 +353,7 @@
         private System.Windows.Forms.Label dividedRightLabel;
         private System.Windows.Forms.Label dividedLeftLabel;
         private System.Windows.Forms.Button startButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
