@@ -112,9 +112,14 @@ namespace Math_Quiz
         public Form1()
         {
             InitializeComponent();
-            defaultColor = timeLabel.BackColor;
-        }
 
+            // Memorize default color of the time label
+            // because it will change if remaining time is below 5 seconds.
+            defaultColor = timeLabel.BackColor;
+
+            //Display current date
+            currentDate.Text = DateTime.Now.ToString("dd MMMM yyyy");
+        }
 
         private void startButton_Click(object sender, EventArgs e)
         {
@@ -155,12 +160,12 @@ namespace Math_Quiz
                 timer1.Stop();
                 timeLabel.Text = "Time's up!";
                 MessageBox.Show("You didn't finish in time.", "Sorry!");
+                startButton.Enabled = true;
                 sum.Value = addend1 + addend2;
                 difference.Value = minuend - subtrahend;
                 product.Value = multiplicand * multiplier;
                 quotient.Value = dividend / divisor;
-                startButton.Enabled = true;
-            }
+             }
         }
 
         private void answer_Enter(object sender, EventArgs e)
@@ -175,24 +180,31 @@ namespace Math_Quiz
             }
         }
 
+        private void beepIf(bool condition)
+        {
+            // Make beep only if condition is true and the quiz is running
+            // Avoid beep is the quiz is not running
+            if (condition && !startButton.Enabled) Console.Beep();
+        }
+
         private void sum_ValueChanged(object sender, EventArgs e)
         {
-            if (addend1 + addend2 == sum.Value) Console.Beep();
+            beepIf(addend1 + addend2 == sum.Value);
         }
 
         private void difference_ValueChanged(object sender, EventArgs e)
         {
-            if (minuend - subtrahend == difference.Value) Console.Beep();
+            beepIf(minuend - subtrahend == difference.Value);
         }
 
         private void product_ValueChanged(object sender, EventArgs e)
         {
-            if (multiplicand * multiplier == product.Value) Console.Beep();
+            beepIf(multiplicand * multiplier == product.Value);
         }
 
         private void quotient_ValueChanged(object sender, EventArgs e)
         {
-            if (dividend / divisor == quotient.Value) Console.Beep();
+            beepIf(dividend / divisor == quotient.Value);
         }
     }
 }
