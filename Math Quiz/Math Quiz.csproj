@@ -49,6 +49,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
+    <ApplicationIcon>icon_7JF_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <!--
+  <PropertyGroup>
     <ManifestCertificateThumbprint>8B17A6829D9AD93E8852E27B1000C23A728BDF87</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
@@ -60,6 +64,7 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  -->
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -119,6 +124,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon_7JF_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
